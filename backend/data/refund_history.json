@@ -1,0 +1,26 @@
+[
+  {
+    "record_id": "REF-ORD003-20260621173327",
+    "order_id": "ORD003",
+    "customer_id": "C003",
+    "customer_name": "Rahul Verma",
+    "product": "Laptop Stand",
+    "decision": "APPROVED",
+    "refund_amount": 1500.0,
+    "reason": "Defective product",
+    "processed_at": "2026-06-21T17:33:27.297387",
+    "status": "PROCESSED"
+  },
+  {
+    "record_id": "REF-ORD005-20260621184116",
+    "order_id": "ORD005",
+    "customer_id": "C005",
+    "customer_name": "Karthik Raja",
+    "product": "Bluetooth Speaker",
+    "decision": "APPROVED",
+    "refund_amount": 2800.0,
+    "reason": "Defective product, within policy window",
+    "processed_at": "2026-06-21T18:41:16.390086",
+    "status": "PROCESSED"
+  }
+]

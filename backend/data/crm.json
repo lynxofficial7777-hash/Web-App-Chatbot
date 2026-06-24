@@ -1,0 +1,169 @@
+{
+  "customers": [
+    {
+      "id": "C001",
+      "name": "Arjun Sharma",
+      "email": "arjun@email.com",
+      "order_id": "ORD001",
+      "product": "Nike Air Max",
+      "purchase_date": "2026-05-25",
+      "order_value": 4500,
+      "reason": "Wrong size delivered",
+      "status": "delivered"
+    },
+    {
+      "id": "C002",
+      "name": "Priya Nair",
+      "email": "priya@email.com",
+      "order_id": "ORD002",
+      "product": "Samsung Earbuds",
+      "purchase_date": "2026-04-01",
+      "order_value": 3200,
+      "reason": "Changed my mind",
+      "status": "delivered"
+    },
+    {
+      "id": "C003",
+      "name": "Rahul Verma",
+      "email": "rahul@email.com",
+      "order_id": "ORD003",
+      "product": "Laptop Stand",
+      "purchase_date": "2026-06-10",
+      "order_value": 1500,
+      "reason": "Defective product",
+      "status": "delivered"
+    },
+    {
+      "id": "C004",
+      "name": "Sneha Patel",
+      "email": "sneha@email.com",
+      "order_id": "ORD004",
+      "product": "Wireless Mouse",
+      "purchase_date": "2026-03-01",
+      "order_value": 999,
+      "reason": "Not as described",
+      "status": "delivered"
+    },
+    {
+      "id": "C005",
+      "name": "Karthik Raja",
+      "email": "karthik@email.com",
+      "order_id": "ORD005",
+      "product": "Bluetooth Speaker",
+      "purchase_date": "2026-06-15",
+      "order_value": 2800,
+      "reason": "Defective product",
+      "status": "delivered"
+    },
+    {
+      "id": "C006",
+      "name": "Divya Menon",
+      "email": "divya@email.com",
+      "order_id": "ORD006",
+      "product": "Yoga Mat",
+      "purchase_date": "2026-06-01",
+      "order_value": 800,
+      "reason": "Wrong item sent",
+      "status": "delivered"
+    },
+    {
+      "id": "C007",
+      "name": "Anil Kumar",
+      "email": "anil@email.com",
+      "order_id": "ORD007",
+      "product": "Coffee Maker",
+      "purchase_date": "2026-01-10",
+      "order_value": 5500,
+      "reason": "Defective product",
+      "status": "delivered"
+    },
+    {
+      "id": "C008",
+      "name": "Meera Iyer",
+      "email": "meera@email.com",
+      "order_id": "ORD008",
+      "product": "Running Shoes",
+      "purchase_date": "2026-06-18",
+      "order_value": 3800,
+      "reason": "Size issue",
+      "status": "delivered"
+    },
+    {
+      "id": "C009",
+      "name": "Vijay Anand",
+      "email": "vijay@email.com",
+      "order_id": "ORD009",
+      "product": "Smart Watch",
+      "purchase_date": "2026-05-01",
+      "order_value": 8999,
+      "reason": "Changed my mind",
+      "status": "delivered"
+    },
+    {
+      "id": "C010",
+      "name": "Lakshmi Devi",
+      "email": "lakshmi@email.com",
+      "order_id": "ORD010",
+      "product": "Mixer Grinder",
+      "purchase_date": "2026-06-05",
+      "order_value": 4200,
+      "reason": "Defective product",
+      "status": "delivered"
+    },
+    {
+      "id": "C011",
+      "name": "Suresh Babu",
+      "email": "suresh@email.com",
+      "order_id": "ORD011",
+      "product": "Gaming Headset",
+      "purchase_date": "2026-02-14",
+      "order_value": 2500,
+      "reason": "Not as described",
+      "status": "delivered"
+    },
+    {
+      "id": "C012",
+      "name": "Anitha Raj",
+      "email": "anitha@email.com",
+      "order_id": "ORD012",
+      "product": "Air Purifier",
+      "purchase_date": "2026-06-12",
+      "order_value": 12000,
+      "reason": "Defective product",
+      "status": "delivered"
+    },
+    {
+      "id": "C013",
+      "name": "Ramesh Krishnan",
+      "email": "ramesh@email.com",
+      "order_id": "ORD013",
+      "product": "Office Chair",
+      "purchase_date": "2026-05-20",
+      "order_value": 9500,
+      "reason": "Wrong size",
+      "status": "delivered"
+    },
+    {
+      "id": "C014",
+      "name": "Pooja Singh",
+      "email": "pooja@email.com",
+      "order_id": "ORD014",
+      "product": "Skincare Kit",
+      "purchase_date": "2026-06-17",
+      "order_value": 1800,
+      "reason": "Allergic reaction",
+      "status": "delivered"
+    },
+    {
+      "id": "C015",
+      "name": "Deepak Nair",
+      "email": "deepak@email.com",
+      "order_id": "ORD015",
+      "product": "Electric Kettle",
+      "purchase_date": "2026-06-19",
+      "order_value": 1200,
+      "reason": "Defective product",
+      "status": "delivered"
+    }
+  ]
+}
