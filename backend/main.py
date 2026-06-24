@@ -64,7 +64,12 @@ app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],          # tighten for production
+    allow_origins=[
+        "http://localhost:5173",          # local Vite dev server
+        "http://localhost:4173",          # local Vite preview
+        "https://shopease-ai-agent.vercel.app",  # production frontend — update to your Vercel URL
+        "*",                              # keep open during development; restrict after go-live
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

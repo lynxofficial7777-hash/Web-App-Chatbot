@@ -5,7 +5,10 @@
  * Handles both regular fetch calls and SSE streaming connections.
  */
 
-const BASE_URL = "http://localhost:8000";
+// In development: falls back to localhost.
+// In production: set VITE_API_URL in Vercel environment variables
+// to your Render backend URL (e.g. https://shopease-agent.onrender.com)
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 /**
  * Stream a chat message via SSE.
