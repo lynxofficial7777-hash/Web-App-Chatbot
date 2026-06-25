@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import AdminDashboard from "../components/AdminDashboard";
 
+// Use the same env variable as api.js — falls back to localhost in development
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
 export default function AdminPage() {
   const [reasoningLog, setReasoningLog] = useState([]);
   const [sessionId, setSessionId] = useState(null);
@@ -9,12 +12,12 @@ export default function AdminPage() {
     // Poll for latest session logs every 3 seconds
     const interval = setInterval(async () => {
       try {
-        const res = await fetch("http://localhost:8000/sessions");
+        const res = await fetch(`${BASE_URL}/sessions`);
         const data = await res.json();
         if (data.sessions && data.sessions.length > 0) {
           const latest = data.sessions[data.sessions.length - 1];
           setSessionId(latest.session_id);
-          const histRes = await fetch(`http://localhost:8000/history/${latest.session_id}`);
+          const histRes = await fetch(`${BASE_URL}/history/${latest.session_id}`);
           const histData = await histRes.json();
           setReasoningLog(histData.reasoning_log || []);
         }

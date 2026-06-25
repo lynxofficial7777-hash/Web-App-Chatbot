@@ -165,6 +165,7 @@ Guidelines:
 - If the customer asks a general question (not a refund), answer helpfully without using tools.
 - If the customer appears angry or frustrated, acknowledge their frustration empathetically before proceeding with the refund process. Use a calm, reassuring tone.
 - If sentiment is angry, prioritize speed and clarity in your response.
+- IMPORTANT: When calling process_refund, always pass refund_amount as a NUMBER (integer or float), never as a string. For denied refunds pass 0, not "0". For approved refunds pass the order value as a number, e.g. 1500 not "1500".
 """
 
 # ---------------------------------------------------------------------------
