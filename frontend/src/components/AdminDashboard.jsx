@@ -12,6 +12,9 @@ import { useState, useEffect, useRef } from "react";
 import ReasoningLog from "./ReasoningLog";
 import { fetchCustomers } from "../services/api";
 
+// Use same env variable as api.js — falls back to localhost in development
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
@@ -60,7 +63,7 @@ export default function AdminDashboard({ reasoningLog, sessionId }) {
     if (activeTab === "history") {
       setLoadingHistory(true);
       setHistoryError(null);
-      fetch("http://localhost:8000/refund-history")
+      fetch(`${BASE_URL}/refund-history`)
         .then((res) => {
           if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
           return res.json();
