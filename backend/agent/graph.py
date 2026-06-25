@@ -34,7 +34,7 @@ from langchain_core.messages import (
     SystemMessage,
     ToolMessage,
 )
-from langchain_groq import ChatGroq
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.graph import END, START, StateGraph
 from langgraph.graph.message import add_messages
 from typing_extensions import TypedDict
@@ -182,13 +182,13 @@ class AgentState(TypedDict):
 # ---------------------------------------------------------------------------
 
 def _build_llm_with_tools():
-    api_key = os.getenv("GROQ_API_KEY")
+    api_key = os.getenv("GOOGLE_API_KEY")
     if not api_key:
-        raise RuntimeError("GROQ_API_KEY not found in environment variables.")
+        raise RuntimeError("GOOGLE_API_KEY not found in environment variables.")
 
-    llm = ChatGroq(
-        model="llama-3.3-70b-versatile",
-        groq_api_key=api_key,
+    llm = ChatGoogleGenerativeAI(
+        model="gemini-1.5-flash",
+        google_api_key=api_key,
         temperature=0.3,
     )
     return llm.bind_tools(ALL_TOOLS)
