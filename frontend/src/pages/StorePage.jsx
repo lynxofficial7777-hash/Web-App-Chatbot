@@ -8,7 +8,7 @@ const PRODUCTS = [
   { id: 3,  name: "Laptop Stand",                price: 1500,  image: "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&q=80", category: "Accessories",  rating: 4.5, reviews: 234, badge: "Bestseller"  },
   { id: 4,  name: "Wireless Mouse",              price: 999,   image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&q=80", category: "Electronics",  rating: 4.7, reviews: 445, badge: "Top Rated"   },
   { id: 5,  name: "Bluetooth Speaker",           price: 2800,  image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&q=80", category: "Electronics",  rating: 4.4, reviews: 167, badge: null          },
-  { id: 6,  name: "Yoga Mat",                    price: 800,   image: "https://images.unsplash.com/photo-1601925228008-2e7f3e2f4e71?w=400&q=80", category: "Fitness",      rating: 4.2, reviews: 98,  badge: null          },
+  { id: 6,  name: "Yoga Mat",                    price: 800,   image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&q=80", category: "Fitness",      rating: 4.2, reviews: 98,  badge: null          },
   { id: 7,  name: "Coffee Maker",                price: 5500,  image: "https://images.unsplash.com/photo-1510017803434-a899398421b3?w=400&q=80", category: "Kitchen",      rating: 4.8, reviews: 521, badge: "Bestseller"  },
   { id: 8,  name: "Running Shoes",               price: 3800,  image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80",  category: "Footwear",     rating: 4.5, reviews: 203, badge: "New"         },
   { id: 9,  name: "Smart Watch",                 price: 8999,  image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80", category: "Electronics",  rating: 4.5, reviews: 234, badge: "Bestseller"  },
@@ -18,7 +18,7 @@ const PRODUCTS = [
   { id: 13, name: "Water Bottle",                price: 599,   image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&q=80", category: "Fitness",      rating: 4.6, reviews: 445, badge: "Top Rated"   },
   { id: 14, name: "Resistance Bands",            price: 799,   image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80", category: "Fitness",      rating: 4.4, reviews: 167, badge: null          },
   { id: 15, name: "Air Fryer",                   price: 7500,  image: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=400&q=80", category: "Kitchen",      rating: 4.8, reviews: 521, badge: "Bestseller"  },
-  { id: 16, name: "Protein Shaker",              price: 449,   image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80", category: "Fitness",      rating: 4.2, reviews: 203, badge: null          },
+  { id: 16, name: "Protein Shaker",              price: 449,   image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80", category: "Fitness",      rating: 4.2, reviews: 203, badge： null          },
 ];
 
 const CATEGORIES = ["All", "Electronics", "Footwear", "Accessories", "Fitness", "Kitchen"];
@@ -87,17 +87,19 @@ function Toast({ visible }) {
 }
 
 // ─── Main Component ───────────────────────────────────────────────────────────
-export default function StorePage() {
+export default function StorePage({ cart = [], setCart = () => {} }) {
   const [chatOpen,       setChatOpen]       = useState(false);
   const [searchQuery,    setSearchQuery]    = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
   const [sortOption,     setSortOption]     = useState("featured");
-  const [cartCount,      setCartCount]      = useState(0);
   const [wishlist,       setWishlist]       = useState(new Set());
   const [toastVisible,   setToastVisible]   = useState(false);
   const [toastTimer,     setToastTimer]     = useState(null);
   const [hoveredCard,    setHoveredCard]    = useState(null);
   const [hoveredCartBtn, setHoveredCartBtn] = useState(null);
+
+  // Derived from lifted state
+  const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
 
   // ── Filtering ──────────────────────────────────────────────────────────────
   const filtered = PRODUCTS.filter((p) => {
@@ -120,13 +122,21 @@ export default function StorePage() {
   });
 
   // ── Handlers ───────────────────────────────────────────────────────────────
-  const handleAddToCart = useCallback(() => {
-    setCartCount((c) => c + 1);
+  const handleAddToCart = useCallback((product) => {
+    setCart((prev) => {
+      const existing = prev.find((item) => item.id === product.id);
+      if (existing) {
+        return prev.map((item) =>
+          item.id === product.id ? { ...item, qty: item.qty + 1 } : item
+        );
+      }
+      return [...prev, { ...product, qty: 1 }];
+    });
     if (toastTimer) clearTimeout(toastTimer);
     setToastVisible(true);
     const timer = setTimeout(() => setToastVisible(false), 2000);
     setToastTimer(timer);
-  }, [toastTimer]);
+  }, [toastTimer, setCart]);
 
   const toggleWishlist = useCallback((id) => {
     setWishlist((prev) => {
@@ -183,6 +193,9 @@ export default function StorePage() {
             <span
               key={link}
               style={{ cursor: "pointer", transition: "color 0.2s", color: link === "Home" ? "white" : "#94a3b8" }}
+              onClick={() => {
+                if (link === "Orders") window.location.href = "/orders";
+              }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
               onMouseLeave={(e) => (e.currentTarget.style.color = link === "Home" ? "white" : "#94a3b8")}
             >
@@ -228,7 +241,7 @@ export default function StorePage() {
         {/* Right Icons */}
         <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
           {/* Cart with badge */}
-          <div style={{ position: "relative", cursor: "pointer" }}>
+          <div style={{ position: "relative", cursor: "pointer" }} onClick={() => (window.location.href = "/cart")}>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
               <circle cx="9"  cy="21" r="1"/>
               <circle cx="20" cy="21" r="1"/>
@@ -547,7 +560,7 @@ export default function StorePage() {
                       </div>
                       <button
                         id={`add-to-cart-${p.id}`}
-                        onClick={(e) => { e.stopPropagation(); handleAddToCart(); }}
+                        onClick={(e) => { e.stopPropagation(); handleAddToCart(p); }}
                         onMouseEnter={() => setHoveredCartBtn(p.id)}
                         onMouseLeave={() => setHoveredCartBtn(null)}
                         style={{
