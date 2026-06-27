@@ -3,22 +3,22 @@ import ChatWidget from "../components/ChatWidget";
 
 // ─── Product Catalogue ────────────────────────────────────────────────────────
 const PRODUCTS = [
-  { id: 1,  name: "Nike Air Max",               price: 4500,  image: "NA", category: "Footwear",     rating: 4.6, reviews: 312, badge: "New"        },
-  { id: 2,  name: "Samsung Earbuds",             price: 3200,  image: "SE", category: "Electronics",  rating: 4.3, reviews: 189, badge: null          },
-  { id: 3,  name: "Laptop Stand",                price: 1500,  image: "LS", category: "Accessories",  rating: 4.5, reviews: 234, badge: "Bestseller"  },
-  { id: 4,  name: "Wireless Mouse",              price: 999,   image: "WM", category: "Electronics",  rating: 4.7, reviews: 445, badge: "Top Rated"   },
-  { id: 5,  name: "Bluetooth Speaker",           price: 2800,  image: "BS", category: "Electronics",  rating: 4.4, reviews: 167, badge: null          },
-  { id: 6,  name: "Yoga Mat",                    price: 800,   image: "YM", category: "Fitness",      rating: 4.2, reviews: 98,  badge: null          },
-  { id: 7,  name: "Coffee Maker",                price: 5500,  image: "CM", category: "Kitchen",      rating: 4.8, reviews: 521, badge: "Bestseller"  },
-  { id: 8,  name: "Running Shoes",               price: 3800,  image: "RS", category: "Footwear",     rating: 4.5, reviews: 203, badge: "New"         },
-  { id: 9,  name: "Smart Watch",                 price: 8999,  image: "SW", category: "Electronics",  rating: 4.5, reviews: 234, badge: "Bestseller"  },
-  { id: 10, name: "Noise Cancelling Headphones", price: 6500,  image: "NC", category: "Electronics",  rating: 4.3, reviews: 189, badge: null          },
-  { id: 11, name: "Mechanical Keyboard",         price: 4200,  image: "MK", category: "Accessories",  rating: 4.7, reviews: 312, badge: "Top Rated"   },
-  { id: 12, name: "Desk Lamp",                   price: 1200,  image: "DL", category: "Accessories",  rating: 4.1, reviews: 98,  badge: null          },
-  { id: 13, name: "Water Bottle",                price: 599,   image: "WB", category: "Fitness",      rating: 4.6, reviews: 445, badge: "Top Rated"   },
-  { id: 14, name: "Resistance Bands",            price: 799,   image: "RB", category: "Fitness",      rating: 4.4, reviews: 167, badge: null          },
-  { id: 15, name: "Air Fryer",                   price: 7500,  image: "AF", category: "Kitchen",      rating: 4.8, reviews: 521, badge: "Bestseller"  },
-  { id: 16, name: "Protein Shaker",              price: 449,   image: "PS", category: "Fitness",      rating: 4.2, reviews: 203, badge: null          },
+  { id: 1,  name: "Nike Air Max",               price: 4500,  image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80", category: "Footwear",     rating: 4.6, reviews: 312, badge: "New"        },
+  { id: 2,  name: "Samsung Earbuds",             price: 3200,  image: "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=400&q=80", category: "Electronics",  rating: 4.3, reviews: 189, badge: null          },
+  { id: 3,  name: "Laptop Stand",                price: 1500,  image: "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&q=80", category: "Accessories",  rating: 4.5, reviews: 234, badge: "Bestseller"  },
+  { id: 4,  name: "Wireless Mouse",              price: 999,   image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&q=80", category: "Electronics",  rating: 4.7, reviews: 445, badge: "Top Rated"   },
+  { id: 5,  name: "Bluetooth Speaker",           price: 2800,  image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&q=80", category: "Electronics",  rating: 4.4, reviews: 167, badge: null          },
+  { id: 6,  name: "Yoga Mat",                    price: 800,   image: "https://images.unsplash.com/photo-1601925228008-2e7f3e2f4e71?w=400&q=80", category: "Fitness",      rating: 4.2, reviews: 98,  badge: null          },
+  { id: 7,  name: "Coffee Maker",                price: 5500,  image: "https://images.unsplash.com/photo-1510017803434-a899398421b3?w=400&q=80", category: "Kitchen",      rating: 4.8, reviews: 521, badge: "Bestseller"  },
+  { id: 8,  name: "Running Shoes",               price: 3800,  image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80",  category: "Footwear",     rating: 4.5, reviews: 203, badge: "New"         },
+  { id: 9,  name: "Smart Watch",                 price: 8999,  image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80", category: "Electronics",  rating: 4.5, reviews: 234, badge: "Bestseller"  },
+  { id: 10, name: "Noise Cancelling Headphones", price: 6500,  image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80", category: "Electronics",  rating: 4.3, reviews: 189, badge: null          },
+  { id: 11, name: "Mechanical Keyboard",         price: 4200,  image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&q=80", category: "Accessories",  rating: 4.7, reviews: 312, badge: "Top Rated"   },
+  { id: 12, name: "Desk Lamp",                   price: 1200,  image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&q=80", category: "Accessories",  rating: 4.1, reviews: 98,  badge: null          },
+  { id: 13, name: "Water Bottle",                price: 599,   image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&q=80", category: "Fitness",      rating: 4.6, reviews: 445, badge: "Top Rated"   },
+  { id: 14, name: "Resistance Bands",            price: 799,   image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80", category: "Fitness",      rating: 4.4, reviews: 167, badge: null          },
+  { id: 15, name: "Air Fryer",                   price: 7500,  image: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=400&q=80", category: "Kitchen",      rating: 4.8, reviews: 521, badge: "Bestseller"  },
+  { id: 16, name: "Protein Shaker",              price: 449,   image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80", category: "Fitness",      rating: 4.2, reviews: 203, badge: null          },
 ];
 
 const CATEGORIES = ["All", "Electronics", "Footwear", "Accessories", "Fitness", "Kitchen"];
@@ -30,25 +30,7 @@ const SORT_OPTIONS = [
   { value: "top-rated",  label: "Top Rated"             },
 ];
 
-// ─── Image-placeholder colour palette (per initial) ──────────────────────────
-const PLACEHOLDER_COLORS = {
-  NA: { bg: "#dbeafe", text: "#1d4ed8" },
-  SE: { bg: "#fce7f3", text: "#9d174d" },
-  LS: { bg: "#d1fae5", text: "#065f46" },
-  WM: { bg: "#ede9fe", text: "#5b21b6" },
-  BS: { bg: "#fef3c7", text: "#92400e" },
-  YM: { bg: "#dcfce7", text: "#15803d" },
-  CM: { bg: "#fee2e2", text: "#991b1b" },
-  RS: { bg: "#e0e7ff", text: "#3730a3" },
-  SW: { bg: "#fef9c3", text: "#713f12" },
-  NC: { bg: "#fce7f3", text: "#831843" },
-  MK: { bg: "#f0fdf4", text: "#166534" },
-  DL: { bg: "#fefce8", text: "#854d0e" },
-  WB: { bg: "#ecfeff", text: "#155e75" },
-  RB: { bg: "#fdf4ff", text: "#701a75" },
-  AF: { bg: "#fff7ed", text: "#9a3412" },
-  PS: { bg: "#f0f9ff", text: "#0c4a6e" },
-};
+
 
 const BADGE_STYLES = {
   Bestseller: { bg: "#ea580c", color: "#fff" },
@@ -451,7 +433,6 @@ export default function StorePage() {
             }}
           >
             {sorted.map((p) => {
-              const colors    = PLACEHOLDER_COLORS[p.image] || { bg: "#e8edf8", text: "#2563eb" };
               const isWished  = wishlist.has(p.id);
               const isHovered = hoveredCard === p.id;
               const btnHovered= hoveredCartBtn === p.id;
@@ -532,29 +513,16 @@ export default function StorePage() {
                     </svg>
                   </button>
 
-                  {/* Image Placeholder */}
-                  <div
-                    style={{
-                      background:     colors.bg,
-                      height:         "160px",
-                      display:        "flex",
-                      alignItems:     "center",
-                      justifyContent: "center",
-                      flexDirection:  "column",
-                      gap:            "4px",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize:      "28px",
-                        fontWeight:    900,
-                        color:         colors.text,
-                        letterSpacing: "2px",
-                        fontFamily:    "monospace",
-                      }}
-                    >
-                      {p.image}
-                    </span>
+                  {/* Product Image */}
+                  <div style={{ height: "160px", overflow: "hidden", background: "#f8fafc" }}>
+                    <img
+                      src={p.image}
+                      alt={p.name}
+                      style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.3s ease" }}
+                      onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.08)")}
+                      onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                      onError={(e) => { e.currentTarget.style.display = "none"; }}
+                    />
                   </div>
 
                   {/* Card Body */}
