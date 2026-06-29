@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import ChatWidget from "../components/ChatWidget";
 
 // ─── Product Catalogue ────────────────────────────────────────────────────────
@@ -99,7 +100,9 @@ export default function StorePage({ cart = [], setCart = () => {} }) {
   const [hoveredCartBtn, setHoveredCartBtn] = useState(null);
 
   // Derived from lifted state
+  const navigate = useNavigate();
   const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
+  
 
   // ── Filtering ──────────────────────────────────────────────────────────────
   const filtered = PRODUCTS.filter((p) => {
@@ -194,7 +197,7 @@ export default function StorePage({ cart = [], setCart = () => {} }) {
               key={link}
               style={{ cursor: "pointer", transition: "color 0.2s", color: link === "Home" ? "white" : "#94a3b8" }}
               onClick={() => {
-                if (link === "Orders") window.location.href = "/orders";
+                if (link === "Orders") navigate("/orders");
               }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
               onMouseLeave={(e) => (e.currentTarget.style.color = link === "Home" ? "white" : "#94a3b8")}
