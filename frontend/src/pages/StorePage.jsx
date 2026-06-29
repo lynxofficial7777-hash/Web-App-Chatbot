@@ -18,7 +18,7 @@ const PRODUCTS = [
   { id: 13, name: "Water Bottle",                price: 599,   image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&q=80", category: "Fitness",      rating: 4.6, reviews: 445, badge: "Top Rated"   },
   { id: 14, name: "Resistance Bands",            price: 799,   image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80", category: "Fitness",      rating: 4.4, reviews: 167, badge: null          },
   { id: 15, name: "Air Fryer",                   price: 7500,  image: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=400&q=80", category: "Kitchen",      rating: 4.8, reviews: 521, badge: "Bestseller"  },
-  { id: 16, name: "Protein Shaker",              price: 449,   image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80", category: "Fitness",      rating: 4.2, reviews: 203, badge： null          },
+  { id: 16, name: "Protein Shaker",              price: 449,   image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80", category: "Fitness",      rating: 4.2, reviews: 203, badge: null          },
 ];
 
 const CATEGORIES = ["All", "Electronics", "Footwear", "Accessories", "Fitness", "Kitchen"];
