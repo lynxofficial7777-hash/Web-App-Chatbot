@@ -244,7 +244,7 @@ export default function StorePage({ cart = [], setCart = () => {} }) {
         {/* Right Icons */}
         <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
           {/* Cart with badge */}
-          <div style={{ position: "relative", cursor: "pointer" }} onClick={() => (window.location.href = "/cart")}>
+          <div style={{ position: "relative", cursor: "pointer" }} onClick={() => navigate("/cart")}>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
               <circle cx="9"  cy="21" r="1"/>
               <circle cx="20" cy="21" r="1"/>
@@ -276,7 +276,7 @@ export default function StorePage({ cart = [], setCart = () => {} }) {
           </div>
 
           {/* User */}
-          <span style={{ cursor: "pointer" }}>
+          <span style={{ cursor: "pointer" }} onClick={() => alert("Login coming soon")}>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
               <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
               <circle cx="12" cy="7" r="4"/>
@@ -629,7 +629,7 @@ export default function StorePage({ cart = [], setCart = () => {} }) {
         © 2026 ShopEase · All rights reserved ·{" "}
         <span
           style={{ color:"#3b82f6", cursor:"pointer", fontWeight:600 }}
-          onClick={() => (window.location.href = "/admin")}
+          onClick={() => navigate("/admin")}
         >
           Admin
         </span>
