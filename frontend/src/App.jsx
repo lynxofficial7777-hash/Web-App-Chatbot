@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import StorePage  from "./pages/StorePage";
 import AdminPage  from "./pages/AdminPage";
@@ -6,9 +6,19 @@ import CartPage   from "./pages/CartPage";
 import OrdersPage from "./pages/OrdersPage";
 
 export default function App() {
-  // ── Lifted cart state ──────────────────────────────────────────────────────
-  const [cart, setCart] = useState([]);
+  // ── Lifted cart state (persisted to localStorage) ──────────────────────────
+  const [cart, setCart] = useState(() => {
+    try {
+      const saved = localStorage.getItem("shopease_cart");
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
 
+  useEffect(() => {
+    localStorage.setItem("shopease_cart", JSON.stringify(cart));
+  }, [cart]);
   return (
     <BrowserRouter>
       <Routes>
