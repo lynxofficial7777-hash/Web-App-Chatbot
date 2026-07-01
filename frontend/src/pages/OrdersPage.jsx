@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 // ── Mock order history ─────────────────────────────────────────────────────────
 const ORDERS = [
   {
@@ -39,6 +41,7 @@ const STATUS_STYLES = {
 };
 
 export default function OrdersPage() {
+  const navigate = useNavigate();
   return (
     <div
       style={{
@@ -65,7 +68,7 @@ export default function OrdersPage() {
         {/* Logo */}
         <div
           style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer" }}
-          onClick={() => (window.location.href = "/")}
+          onClick={() => navigate("/")}
         >
           <div
             style={{
@@ -93,7 +96,7 @@ export default function OrdersPage() {
 
         <div
           style={{ cursor: "pointer" }}
-          onClick={() => (window.location.href = "/")}
+          onClick={() => navigate("/")}
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" strokeWidth="2">
             <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
@@ -256,7 +259,7 @@ export default function OrdersPage() {
                   </div>
 
                   <button
-                    onClick={() => (window.location.href = "/")}
+                    onClick={() => navigate("/")}
                     style={{
                       background:   "transparent",
                       border:       "1.5px solid #e2e8f0",

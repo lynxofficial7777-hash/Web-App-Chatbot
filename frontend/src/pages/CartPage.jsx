@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // ── Delivery threshold ─────────────────────────────────────────────────────────
 const FREE_DELIVERY_THRESHOLD = 500;
 const DELIVERY_FEE = 49;
 
 export default function CartPage({ cart, setCart }) {
+  const navigate = useNavigate();
   const [hoveredRemove, setHoveredRemove] = useState(null);
 
   // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -38,7 +40,7 @@ export default function CartPage({ cart, setCart }) {
           flexDirection: "column",
         }}
       >
-        <Navbar cartCount={0} />
+        <Navbar cartCount={0} navigate={navigate} />
         <div
           style={{
             flex:           1,
@@ -67,7 +69,7 @@ export default function CartPage({ cart, setCart }) {
             </p>
           </div>
           <button
-            onClick={() => (window.location.href = "/")}
+            onClick={() => navigate("/")}
             style={{
               background:   "linear-gradient(135deg, #2563eb, #6366f1)",
               color:        "white",
@@ -98,7 +100,7 @@ export default function CartPage({ cart, setCart }) {
         fontFamily: "'Inter', 'Segoe UI', sans-serif",
       }}
     >
-      <Navbar cartCount={cart.reduce((s, i) => s + i.qty, 0)} />
+      <Navbar cartCount={cart.reduce((s, i) => s + i.qty, 0)} navigate={navigate} />
 
       <div
         style={{
@@ -318,7 +320,7 @@ export default function CartPage({ cart, setCart }) {
 
           {/* Continue shopping */}
           <button
-            onClick={() => (window.location.href = "/")}
+            onClick={() => navigate("/")}
             style={{
               marginTop:    "20px",
               background:   "transparent",
@@ -442,7 +444,7 @@ function SummaryRow({ label, value, valueColor = "#0f172a" }) {
   );
 }
 
-function Navbar({ cartCount }) {
+function Navbar({ cartCount, navigate }) {
   return (
     <nav
       style={{
@@ -461,7 +463,7 @@ function Navbar({ cartCount }) {
       {/* Logo */}
       <div
         style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer" }}
-        onClick={() => (window.location.href = "/")}
+        onClick={() => navigate("/")}
       >
         <div
           style={{
@@ -491,7 +493,7 @@ function Navbar({ cartCount }) {
       {/* Cart icon */}
       <div
         style={{ position: "relative", cursor: "pointer" }}
-        onClick={() => (window.location.href = "/")}
+        onClick={() => navigate("/")}
       >
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
           <circle cx="9"  cy="21" r="1"/>
